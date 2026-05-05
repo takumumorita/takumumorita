@@ -1,5 +1,5 @@
 window.SITE_DATA = {
-  "generatedAt": "2026-05-05T02:25:44Z",
+  "generatedAt": "2026-05-05T13:06:45Z",
   "siteUrl": "https://takumumorita.com",
   "contactFormUrl": "https://docs.google.com/forms/d/e/1FAIpQLSch5jbzGyfmg3-7zW7FYQjsg6Pw0ogjhYIk1Lopdim21EviFA/viewform?usp=sharing",
   "categories": {
@@ -123,7 +123,7 @@ window.SITE_DATA = {
         "checkboxValue": "Parallax (Clarinet, Violoncello, Piano)"
       },
       "image": {
-        "src": "assets/images/Created_by_morita/abstract_architectural_blueprint_in_soft_hues.png",
+        "src": "assets/images/Created_by_morita/original_before_resize/abstract_architectural_blueprint_in_soft_hues.png",
         "alt": "Parallax の抽象グラフィック",
         "width": 1122,
         "height": 1402
@@ -133,7 +133,7 @@ window.SITE_DATA = {
         12,
         28
       ],
-      "ogImage": "assets/images/Created_by_morita/abstract_architectural_blueprint_in_soft_hues.png"
+      "ogImage": "assets/images/Created_by_morita/original_before_resize/abstract_architectural_blueprint_in_soft_hues.png"
     },
     {
       "id": "hikari-to-kumo",
@@ -220,8 +220,7 @@ window.SITE_DATA = {
           "assets/images/score-previews/hikari-to-kumo/page_08.jpg",
           "assets/images/score-previews/hikari-to-kumo/page_09.jpg",
           "assets/images/score-previews/hikari-to-kumo/page_10.jpg",
-          "assets/images/score-previews/hikari-to-kumo/page_11.jpg",
-          "assets/images/score-previews/hikari-to-kumo/page_12.jpg"
+          "assets/images/score-previews/hikari-to-kumo/page_11.jpg"
         ],
         "alt": {
           "en": "Score preview of With Light and Clouds by Takumu Morita",
@@ -232,7 +231,7 @@ window.SITE_DATA = {
         "checkboxValue": "光と雲で / With Light and Clouds (吹奏楽 / Wind Ensemble)"
       },
       "image": {
-        "src": "assets/images/Created_by_morita/ethereal_geometry_in_floating_clouds.png",
+        "src": "assets/images/Created_by_morita/original_before_resize/ethereal_geometry_in_floating_clouds.png",
         "alt": "光と雲で / With Light and Clouds の抽象グラフィック",
         "width": 1122,
         "height": 1402
@@ -242,7 +241,7 @@ window.SITE_DATA = {
         11,
         6
       ],
-      "ogImage": "assets/images/Created_by_morita/ethereal_geometry_in_floating_clouds.png"
+      "ogImage": "assets/images/Created_by_morita/original_before_resize/ethereal_geometry_in_floating_clouds.png"
     },
     {
       "id": "hoshi-ni-oyogu",
@@ -341,7 +340,7 @@ window.SITE_DATA = {
         "checkboxValue": "星におよぐ / Swim to the Stars (2 Tenor Saxophones, Piano)"
       },
       "image": {
-        "src": "assets/images/Created_by_morita/futuristic_celestial_diagram_in_gold_and_blue.png",
+        "src": "assets/images/Created_by_morita/original_before_resize/futuristic_celestial_diagram_in_gold_and_blue.png",
         "alt": "星におよぐ の抽象グラフィック",
         "width": 1024,
         "height": 1536
@@ -351,7 +350,7 @@ window.SITE_DATA = {
         9,
         19
       ],
-      "ogImage": "assets/images/Created_by_morita/futuristic_celestial_diagram_in_gold_and_blue.png"
+      "ogImage": "assets/images/Created_by_morita/original_before_resize/futuristic_celestial_diagram_in_gold_and_blue.png"
     },
     {
       "id": "between-the-winds",
@@ -450,7 +449,7 @@ window.SITE_DATA = {
         "checkboxValue": "Between the Winds (Flute, Piano)"
       },
       "image": {
-        "src": "assets/images/Created_by_morita/ethereal_flow_of_soft_ribbons.png",
+        "src": "assets/images/Created_by_morita/original_before_resize/ethereal_flow_of_soft_ribbons.png",
         "alt": "Between the Winds の抽象グラフィック",
         "width": 1024,
         "height": 1536
@@ -460,7 +459,7 @@ window.SITE_DATA = {
         4,
         4
       ],
-      "ogImage": "assets/images/Created_by_morita/ethereal_flow_of_soft_ribbons.png"
+      "ogImage": "assets/images/Created_by_morita/original_before_resize/ethereal_flow_of_soft_ribbons.png"
     },
     {
       "id": "kasasane",
@@ -555,7 +554,7 @@ window.SITE_DATA = {
         "checkboxValue": "かささね / Kasasane (12 Trombones)"
       },
       "image": {
-        "src": "assets/images/Created_by_morita/elegant_abstract_cathedral_of_layered_geometry.png",
+        "src": "assets/images/Created_by_morita/original_before_resize/elegant_abstract_cathedral_of_layered_geometry.png",
         "alt": "Kasasane の抽象グラフィック",
         "width": 1122,
         "height": 1402
@@ -565,7 +564,7 @@ window.SITE_DATA = {
         1,
         10
       ],
-      "ogImage": "assets/images/Created_by_morita/elegant_abstract_cathedral_of_layered_geometry.png"
+      "ogImage": "assets/images/Created_by_morita/original_before_resize/elegant_abstract_cathedral_of_layered_geometry.png"
     },
     {
       "id": "zapping-shower",
@@ -657,7 +656,7 @@ window.SITE_DATA = {
         "checkboxValue": "Zapping Shower (Clarinet, Electronics)"
       },
       "image": {
-        "src": "assets/images/Created_by_morita/futuristic_explosion_of_fragmented_geometry.png",
+        "src": "assets/images/Created_by_morita/original_before_resize/futuristic_explosion_of_fragmented_geometry.png",
         "alt": "Zapping Shower の抽象グラフィック",
         "width": 1122,
         "height": 1402
@@ -667,7 +666,7 @@ window.SITE_DATA = {
         2,
         3
       ],
-      "ogImage": "assets/images/Created_by_morita/futuristic_explosion_of_fragmented_geometry.png"
+      "ogImage": "assets/images/Created_by_morita/original_before_resize/futuristic_explosion_of_fragmented_geometry.png"
     },
     {
       "id": "cutting",
@@ -764,7 +763,7 @@ window.SITE_DATA = {
         "checkboxValue": "Cutting (小アンサンブル / Small ensemble)"
       },
       "image": {
-        "src": "assets/images/Created_by_morita/explosive_geometric_abstraction_with_metallic_acce.png",
+        "src": "assets/images/Created_by_morita/original_before_resize/explosive_geometric_abstraction_with_metallic_acce.png",
         "alt": "Cutting の抽象グラフィック",
         "width": 1024,
         "height": 1536
@@ -774,7 +773,7 @@ window.SITE_DATA = {
         1,
         19
       ],
-      "ogImage": "assets/images/Created_by_morita/explosive_geometric_abstraction_with_metallic_acce.png"
+      "ogImage": "assets/images/Created_by_morita/original_before_resize/explosive_geometric_abstraction_with_metallic_acce.png"
     },
     {
       "id": "manekko",
@@ -862,8 +861,7 @@ window.SITE_DATA = {
           "assets/images/score-previews/manekko/page_09.jpg",
           "assets/images/score-previews/manekko/page_10.jpg",
           "assets/images/score-previews/manekko/page_11.jpg",
-          "assets/images/score-previews/manekko/page_12.jpg",
-          "assets/images/score-previews/manekko/page_13.jpg"
+          "assets/images/score-previews/manekko/page_12.jpg"
         ],
         "alt": {
           "en": "Score preview of Manekko Gokko by Takumu Morita",
@@ -874,7 +872,7 @@ window.SITE_DATA = {
         "checkboxValue": "まねっこごっこ / Manekko-gokko (Orchestra)"
       },
       "image": {
-        "src": "assets/images/Created_by_morita/symmetrical_geometry_and_cosmic_patterns.png",
+        "src": "assets/images/Created_by_morita/original_before_resize/symmetrical_geometry_and_cosmic_patterns.png",
         "alt": "まねっこごっこ / Manekko Gokko の抽象グラフィック",
         "width": 1122,
         "height": 1402
@@ -884,7 +882,7 @@ window.SITE_DATA = {
         11,
         17
       ],
-      "ogImage": "assets/images/Created_by_morita/symmetrical_geometry_and_cosmic_patterns.png"
+      "ogImage": "assets/images/Created_by_morita/original_before_resize/symmetrical_geometry_and_cosmic_patterns.png"
     },
     {
       "id": "a-childs-garden",
@@ -1172,7 +1170,7 @@ window.SITE_DATA = {
         "checkboxValue": "Saxophone Quartet No.1 \"Utopia\""
       },
       "image": {
-        "src": "assets/images/Created_by_morita/Utopia_Graphic.png",
+        "src": "assets/images/Created_by_morita/original_before_resize/Utopia_Graphic.png",
         "alt": "サクソフォン四重奏曲第一番 Utopia の抽象グラフィック",
         "width": 1122,
         "height": 1402
@@ -1182,7 +1180,7 @@ window.SITE_DATA = {
         5,
         6
       ],
-      "ogImage": "assets/images/Created_by_morita/Utopia_Graphic.png"
+      "ogImage": "assets/images/Created_by_morita/original_before_resize/Utopia_Graphic.png"
     },
     {
       "id": "suisho",
@@ -1268,17 +1266,17 @@ window.SITE_DATA = {
         "checkboxValue": ""
       },
       "image": {
-        "src": "",
+        "src": "assets/images/Created_by_morita/original_before_resize/Suisho-no-kuni-ni-owakarewo.png",
         "alt": "水晶の国にお別れを / Farewell to the Crystal Kingdom の抽象グラフィック",
-        "width": null,
-        "height": null
+        "width": 1086,
+        "height": 1448
       },
       "sortKey": [
         2021,
         12,
         18
       ],
-      "ogImage": "assets/images/og/suisho-no-kuni-ni-owakare-wo.svg"
+      "ogImage": "assets/images/Created_by_morita/original_before_resize/Suisho-no-kuni-ni-owakarewo.png"
     },
     {
       "id": "suisho-chamber",
@@ -1473,7 +1471,7 @@ window.SITE_DATA = {
         "checkboxValue": ""
       },
       "image": {
-        "src": "assets/images/Created_by_morita/ethereal_descent_of_fragmented_structures.png",
+        "src": "assets/images/Created_by_morita/original_before_resize/ethereal_descent_of_fragmented_structures.png",
         "alt": "Defocusing II — with Falling — の抽象グラフィック",
         "width": 1122,
         "height": 1402
@@ -1483,7 +1481,7 @@ window.SITE_DATA = {
         8,
         5
       ],
-      "ogImage": "assets/images/Created_by_morita/ethereal_descent_of_fragmented_structures.png"
+      "ogImage": "assets/images/Created_by_morita/original_before_resize/ethereal_descent_of_fragmented_structures.png"
     },
     {
       "id": "correspondances",
@@ -1579,7 +1577,7 @@ window.SITE_DATA = {
         "checkboxValue": "Correspondances (Soprano, Ensemble)"
       },
       "image": {
-        "src": "assets/images/Created_by_morita/Correspondances_Graphic.png",
+        "src": "assets/images/Created_by_morita/original_before_resize/Correspondances_Graphic.png",
         "alt": "Correspondances の抽象グラフィック",
         "width": 1122,
         "height": 1402
@@ -1589,7 +1587,7 @@ window.SITE_DATA = {
         2,
         3
       ],
-      "ogImage": "assets/images/Created_by_morita/Correspondances_Graphic.png"
+      "ogImage": "assets/images/Created_by_morita/original_before_resize/Correspondances_Graphic.png"
     },
     {
       "id": "mawatte",
@@ -2059,7 +2057,7 @@ window.SITE_DATA = {
         "checkboxValue": ""
       },
       "image": {
-        "src": "assets/images/Created_by_morita/celestial_architecture_and_blueprint_harmony.png",
+        "src": "assets/images/Created_by_morita/original_before_resize/celestial_architecture_and_blueprint_harmony.png",
         "alt": "Architecture and Constellations の抽象グラフィック",
         "width": 1024,
         "height": 1536
@@ -2069,7 +2067,7 @@ window.SITE_DATA = {
         0,
         0
       ],
-      "ogImage": "assets/images/Created_by_morita/celestial_architecture_and_blueprint_harmony.png"
+      "ogImage": "assets/images/Created_by_morita/original_before_resize/celestial_architecture_and_blueprint_harmony.png"
     },
     {
       "id": "finished-knowing",
@@ -2265,6 +2263,42 @@ window.SITE_DATA = {
     }
   ],
   "news": [
+    {
+      "date": "2027.3.20–22",
+      "tag": "upcoming",
+      "badge": {
+        "ja": "今後の予定",
+        "en": "Upcoming"
+      },
+      "title": {
+        "en": "Moji・Kotoba・Oto Exhibition (working title)",
+        "ja": "《もじ・ことば・おと展（仮）》実施予定"
+      },
+      "body": {
+        "en": "Joint exhibition as the Ii・Komawaki・Morita Joint Project.",
+        "ja": "「ぃぃ・駒和樹・森田拓夢 共同企画」として展覧会を実施予定です。"
+      },
+      "linkUrl": "",
+      "external": false
+    },
+    {
+      "date": "2028.3 TBA",
+      "tag": "upcoming",
+      "badge": {
+        "ja": "今後の予定",
+        "en": "Upcoming"
+      },
+      "title": {
+        "en": "New work presentation planned",
+        "ja": "新作発表予定"
+      },
+      "body": {
+        "en": "A new work is planned as part of the Ii・Komawaki・Morita Joint Project.",
+        "ja": "「ぃぃ・駒和樹・森田拓夢 共同企画」として新作を発表予定です。"
+      },
+      "linkUrl": "",
+      "external": false
+    },
     {
       "date": "2025.12.28",
       "tag": "premiere",
@@ -2574,17 +2608,5 @@ window.SITE_DATA = {
       }
     }
   ],
-  "now": [
-    {
-      "active": true,
-      "title": {
-        "en": "Reframing for Orchestra",
-        "ja": "Reframing for Orchestra"
-      },
-      "body": {
-        "en": "New work for orchestra (3-wind ensemble setting).",
-        "ja": "3管編成のオーケストラ作品"
-      }
-    }
-  ]
+  "now": []
 };

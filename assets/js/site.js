@@ -44,9 +44,18 @@
 
   function selectedWorks() {
     return works()
-      .filter((work) => work.selectedListening)
+      .filter((work) => work.selectedListening && work.image?.src && (work.audio?.url || work.video?.url))
       .sort((a, b) => (a.selectedOrder || 999) - (b.selectedOrder || 999))
       .slice(0, 5);
+  }
+
+  function homeFeaturedWorks() {
+    const priority = ["hikari-to-kumo", "manekko", "defocusing-ii", "suisho", "zapping-shower", "cutting"];
+    const byId = new Map(works().map((work) => [work.id, work]));
+    return priority
+      .map((id) => byId.get(id))
+      .filter((work) => work && work.hasDetail && work.image?.src)
+      .slice(0, 6);
   }
 
   function ui(ja, en) {
@@ -110,10 +119,10 @@
     const audio = work.audio || {};
     const video = work.video || {};
     if (audio.type === "soundcloud" && audio.embedUrl) {
-      return `<div class="media-frame"><iframe title="${escapeHtml(t(work.title))} audio" scrolling="no" allow="autoplay" src="${escapeHtml(audio.embedUrl)}"></iframe></div>`;
+      return `<div class="media-frame media-frame-audio"><iframe title="${escapeHtml(t(work.title))} audio" scrolling="no" allow="autoplay" src="${escapeHtml(audio.embedUrl)}"></iframe></div>`;
     }
     if ((audio.type === "youtube" || video.embedUrl) && video.embedUrl) {
-      return `<div class="media-frame"><iframe title="${escapeHtml(t(work.title))} video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen src="${escapeHtml(video.embedUrl)}"></iframe></div>`;
+      return `<div class="media-frame media-frame-video"><iframe title="${escapeHtml(t(work.title))} video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen src="${escapeHtml(video.embedUrl)}"></iframe></div>`;
     }
     if (audio.type === "file" && audio.url) {
       return `<div class="media-frame"><audio controls preload="none" src="${escapeHtml(assetUrl(audio.url))}"></audio></div>`;
@@ -130,9 +139,16 @@
         <img src="${escapeHtml(assetUrl(page))}" alt="" loading="lazy" decoding="async" draggable="false">
       </button>`;
     }).join("");
-    return `<section class="detail-section" id="score-preview">
+    return `<section class="detail-section score-section" id="score-preview">
         <h2>${ui("スコア試し読み", "Score Preview")}</h2>
-        <div class="score-viewer" data-score-viewer data-score-protected>
+        <div class="score-viewer" data-score-viewer data-score-protected tabindex="0" aria-label="${escapeHtml(ui("スコア試し読みビューア", "Score preview viewer"))}">
+          <div class="score-toolbar">
+            <p class="score-count"><span data-score-current>1</span> / ${pages.length}</p>
+            <div class="score-toolbar-actions">
+              <button class="score-action-button" type="button" data-score-fullscreen aria-expanded="false">${ui("全画面", "Fullscreen")}</button>
+              <button class="score-action-button score-close-button" type="button" data-score-close>${ui("閉じる", "Close")}</button>
+            </div>
+          </div>
           <div class="score-stage">
             <button class="score-nav-button score-prev" type="button" data-score-prev aria-label="${ui("前のページ", "Previous page")}">‹</button>
             <figure class="score-preview">
@@ -141,7 +157,6 @@
             <button class="score-nav-button score-next" type="button" data-score-next aria-label="${ui("次のページ", "Next page")}">›</button>
           </div>
           <div class="score-footer">
-            <p class="score-count"><span data-score-current>1</span> / ${pages.length}</p>
             <div class="score-thumbs" aria-label="${ui("スコアページ", "Score pages")}">${thumbs}</div>
           </div>
         </div>
@@ -290,15 +305,33 @@
   function renderNewsHome() {
     const root = $('[data-render="news-home"]');
     if (!root) return;
-    const items = (DATA.news || []).slice(0, 3);
-    root.innerHTML = `<div class="news-list">${items.map((item) => {
+    const items = (DATA.news || []).slice(0, 4);
+    root.innerHTML = `<div class="news-grid">${items.map((item) => {
       const content = `<span class="news-title">${t(item.title)}</span>`;
-      const bodyText = `<div class="news-date">${escapeHtml(item.date)}</div>`;
+      const bodyText = t(item.body);
       const linkAttrs = item.external ? ' target="_blank" rel="noopener noreferrer"' : "";
       const badgeClass = item.tag ? ` badge-${escapeHtml(item.tag)}` : "";
-      const badge = item.badge ? `<div class="news-badge-cell"><span class="activity-badge${badgeClass}">${escapeHtml(t(item.badge))}</span></div>` : `<div class="news-badge-cell"></div>`;
-      return `<div class="news-item">${bodyText}${badge}<div class="news-copy">${item.linkUrl ? `<a href="${escapeHtml(pageUrl(item.linkUrl))}"${linkAttrs}>${content}</a>` : content}</div></div>`;
+      const badge = item.badge ? `<span class="activity-badge${badgeClass}">${escapeHtml(t(item.badge))}</span>` : "";
+      return `<article class="news-card">
+        <div class="news-card-meta">${badge}<span class="news-date">${escapeHtml(item.date)}</span></div>
+        <h3>${item.linkUrl ? `<a href="${escapeHtml(pageUrl(item.linkUrl))}"${linkAttrs}>${content}</a>` : content}</h3>
+        ${bodyText ? `<p class="activity-body">${bodyText}</p>` : ""}
+      </article>`;
     }).join("")}</div>`;
+  }
+
+  function renderHomeWorks() {
+    const root = $('[data-render="home-works"]');
+    if (!root) return;
+    const items = homeFeaturedWorks();
+    root.innerHTML = `<div class="home-work-strip" aria-label="${escapeHtml(ui("主な作品", "Selected works"))}">
+      ${items.map((work) => {
+        const imageUrl = new URL(assetUrl(work.image.src), window.location.href).href;
+        return `<a class="home-work-tile" href="${escapeHtml(pageUrl(work.detailUrl))}" style="--work-image: url('${escapeHtml(imageUrl)}')" data-protected-image>
+          <span class="sr-only">${escapeHtml(t(work.title))}</span>
+        </a>`;
+      }).join("")}
+    </div>`;
   }
 
   function renderActivity() {
@@ -312,8 +345,8 @@
       const badgeText = item.badge ? t(item.badge) : ui("その他", "Other");
       const badge = `<div class="activity-badge-cell"><span class="activity-badge${badgeClass}">${escapeHtml(badgeText)}</span></div>`;
       return `<article class="activity-item">
-        <div class="activity-date">${escapeHtml(item.date)}</div>
         ${badge}
+        <div class="activity-date">${escapeHtml(item.date)}</div>
         <div class="activity-copy">${linked}<p class="activity-body">${t(item.body)}</p></div>
       </article>`;
     }).join("")}</div>`;
@@ -436,23 +469,60 @@
     const root = $('[data-render="works-list"]');
     if (!root) return;
     const filtered = works().filter((work) => work.inList && (state.filter === "all" || work.archiveCategory === state.filter));
-    root.innerHTML = `<div class="works-list">
-      <div class="works-header" aria-hidden="true">
-        <span></span><span>${ui("初演日", "Premiere date")}</span><span>${ui("作品", "Work")}</span><span>${ui("編成", "Instrumentation")}</span><span>${ui("時間", "Duration")}</span><span>${ui("委嘱", "Commissioner")}</span><span>${ui("公開情報", "Info")}</span>
-      </div>
-      ${filtered.map((work) => {
-        const titleText = `${escapeHtml(t(work.title))}<small>${escapeHtml(work.title.en)}</small>`;
-        const title = work.hasDetail ? `<a class="work-title-link" href="${escapeHtml(pageUrl(work.detailUrl))}">${titleText}</a>` : `<span>${titleText}</span>`;
-        return `<article class="work-row" data-category="${escapeHtml(work.archiveCategory)}">
-          <div class="work-row-media">${workImage(work, "work-thumb")}</div>
-          <div class="work-cell date" data-label="${ui("初演日", "Premiere date")}">${escapeHtml(dateOrYear(work))}</div>
-          <div class="work-row-title">${title}</div>
-          <div class="work-cell instrumentation" data-label="${ui("編成", "Instrumentation")}">${escapeHtml(t(work.instrumentation))}</div>
-          <div class="work-cell duration" data-label="${ui("時間", "Duration")}">${escapeHtml(t(work.duration))}</div>
-          <div class="work-cell commissioner" data-label="${ui("委嘱", "Commissioner")}">${escapeHtml(t(work.commissioner))}</div>
-          <div class="work-badges" data-label="${ui("公開情報", "Info")}">${workBadges(work)}</div>
-        </article>`;
-      }).join("")}
+    const selected = filtered.filter((work) => work.hasDetail && work.image?.src);
+    const catalogue = filtered.filter((work) => !(work.hasDetail && work.image?.src));
+    const selectedMarkup = selected.length
+      ? `<div class="works-card-grid">${selected.map((work) => `<article class="works-card" data-category="${escapeHtml(work.archiveCategory)}">
+          <a class="works-card-image" href="${escapeHtml(pageUrl(work.detailUrl))}" data-protected-image>
+            <img src="${escapeHtml(assetUrl(work.image.src))}" alt="${escapeHtml(work.image.alt)}"${imageSizeAttrs(work.image)} loading="lazy" decoding="async" draggable="false">
+          </a>
+          <div class="works-card-copy">
+            <p class="work-category">${escapeHtml(categoryLabel(work))}</p>
+            <h3><a href="${escapeHtml(pageUrl(work.detailUrl))}">${escapeHtml(t(work.title))}</a><small>${escapeHtml(work.title.en)}</small></h3>
+            <dl class="works-card-meta">
+              <div><dt>${ui("編成", "Instrumentation")}</dt><dd>${escapeHtml(t(work.instrumentation))}</dd></div>
+              <div><dt>${ui("演奏時間", "Duration")}</dt><dd>${escapeHtml(t(work.duration))}</dd></div>
+              <div><dt>${ui("委嘱", "Commissioner")}</dt><dd>${escapeHtml(t(work.commissioner))}</dd></div>
+            </dl>
+          </div>
+        </article>`).join("")}</div>`
+      : `<p class="empty-note">${ui("この編成の主な作品はまだ掲載していません。", "No selected works are currently listed for this category.")}</p>`;
+    const catalogueMarkup = catalogue.length
+      ? `<div class="works-catalogue-list">
+        <div class="catalogue-header" aria-hidden="true">
+          <span>${ui("作品", "Work")}</span>
+          <span>${ui("編成", "Instrumentation")}</span>
+          <span>${ui("年", "Year")}</span>
+          <span>${ui("初演", "Premiere")}</span>
+        </div>
+        ${catalogue.map((work) => {
+          const titleText = `${escapeHtml(t(work.title))}<small>${escapeHtml(work.title.en)}</small>`;
+          const title = work.hasDetail ? `<a href="${escapeHtml(pageUrl(work.detailUrl))}">${titleText}</a>` : `<span>${titleText}</span>`;
+          return `<article class="catalogue-row" data-category="${escapeHtml(work.archiveCategory)}">
+            <div class="catalogue-title">${title}</div>
+            <div class="catalogue-cell" data-label="${ui("編成", "Instrumentation")}">${escapeHtml(t(work.instrumentation))}</div>
+            <div class="catalogue-cell" data-label="${ui("年", "Year")}">${escapeHtml(work.year)}</div>
+            <div class="catalogue-cell" data-label="${ui("初演", "Premiere")}">${escapeHtml(work.premiere.date)}</div>
+          </article>`;
+        }).join("")}</div>`
+      : `<p class="empty-note">${ui("この編成のその他の作品はありません。", "No other works are currently listed for this category.")}</p>`;
+    root.innerHTML = `<div class="works-layout">
+      <section class="works-selected">
+        <div class="section-head compact-head">
+          <p class="kicker">Selected Works</p>
+          <h2 data-lang="ja">主な作品</h2>
+          <h2 data-lang="en">Selected Works</h2>
+        </div>
+        ${selectedMarkup}
+      </section>
+      <section class="works-catalogue">
+        <div class="section-head compact-head">
+          <p class="kicker">Other Works</p>
+          <h2 data-lang="ja">その他の作品</h2>
+          <h2 data-lang="en">Other Works</h2>
+        </div>
+        ${catalogueMarkup}
+      </section>
     </div>`;
   }
 
@@ -498,12 +568,12 @@
         ${mediaEmbed(work)}
       </section>
 
+      ${scoreSection}
+
       <section class="detail-section" id="program-note">
         <h2>${ui("プログラムノート", "Program Note")}</h2>
         <div>${note || (state.lang === "ja" ? "プログラムノートは準備中です。" : "Program note is in preparation.")}</div>
       </section>
-
-      ${scoreSection}
 
       <section class="detail-section" id="performance-materials">
         <h2>${ui("演奏資料", "Performance Materials")}</h2>
@@ -526,8 +596,12 @@
       const main = $("[data-score-main]", viewer);
       const current = $("[data-score-current]", viewer);
       const thumbs = $$("[data-score-thumb]", viewer);
+      const stage = $(".score-stage", viewer);
+      const fullscreenButton = $("[data-score-fullscreen]", viewer);
+      const closeButton = $("[data-score-close]", viewer);
       if (!main || !thumbs.length) return;
       let index = 0;
+      let touchStartX = null;
 
       function show(nextIndex) {
         index = (nextIndex + thumbs.length) % thumbs.length;
@@ -540,14 +614,50 @@
         thumbs.forEach((button, thumbIndex) => button.setAttribute("aria-current", String(thumbIndex === index)));
       }
 
+      function setFullscreen(open) {
+        viewer.classList.toggle("is-fullscreen", open);
+        body.classList.toggle("score-fullscreen-open", open);
+        fullscreenButton?.setAttribute("aria-expanded", String(open));
+        if (open) {
+          viewer.focus({ preventScroll: true });
+          if (viewer.requestFullscreen && document.fullscreenElement !== viewer) {
+            viewer.requestFullscreen().catch(() => {});
+          }
+        } else if (document.fullscreenElement === viewer && document.exitFullscreen) {
+          document.exitFullscreen().catch(() => {});
+        }
+      }
+
       $("[data-score-prev]", viewer)?.addEventListener("click", () => show(index - 1));
       $("[data-score-next]", viewer)?.addEventListener("click", () => show(index + 1));
+      fullscreenButton?.addEventListener("click", () => setFullscreen(true));
+      closeButton?.addEventListener("click", () => setFullscreen(false));
       thumbs.forEach((thumb) => {
         thumb.addEventListener("click", () => show(Number(thumb.dataset.scoreThumb || 0)));
       });
       viewer.addEventListener("keydown", (event) => {
         if (event.key === "ArrowLeft") show(index - 1);
         if (event.key === "ArrowRight") show(index + 1);
+        if (event.key === "Escape") setFullscreen(false);
+      });
+      stage?.addEventListener("touchstart", (event) => {
+        touchStartX = event.changedTouches[0].clientX;
+      }, { passive: true });
+      stage?.addEventListener("touchend", (event) => {
+        if (touchStartX === null) return;
+        const delta = event.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(delta) > 42) show(delta > 0 ? index - 1 : index + 1);
+        touchStartX = null;
+      }, { passive: true });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && viewer.classList.contains("is-fullscreen")) setFullscreen(false);
+      });
+      document.addEventListener("fullscreenchange", () => {
+        if (!document.fullscreenElement && viewer.classList.contains("is-fullscreen")) {
+          viewer.classList.remove("is-fullscreen");
+          body.classList.remove("score-fullscreen-open");
+          fullscreenButton?.setAttribute("aria-expanded", "false");
+        }
       });
       show(0);
     });
@@ -620,6 +730,7 @@
     renderHeroArt();
     renderCurrent();
     renderNewsHome();
+    renderHomeWorks();
     renderHomeSelected();
     renderListenList();
     renderActivity();
