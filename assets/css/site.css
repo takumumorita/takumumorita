@@ -1358,6 +1358,16 @@ h1,
   margin-top: 8px;
 }
 
+.contact-page .form-cta,
+.scores-guide .form-cta {
+  width: min(100%, 430px);
+  min-height: 58px;
+  margin-top: 20px;
+  padding: 14px 30px;
+  font-size: 16px;
+  box-shadow: 0 16px 38px rgba(37, 34, 28, 0.10);
+}
+
 .shop-page > section {
   margin-top: 58px;
 }
@@ -1384,19 +1394,32 @@ h1,
   margin-bottom: 26px;
 }
 
-.contact-card {
-  padding: 17px 20px;
-  border: 1px solid var(--line);
-  background: rgba(255, 253, 248, 0.74);
+.contact-list-item {
+  position: relative;
+  padding: 2px 0 16px 24px;
+  border-bottom: 1px solid var(--line-soft);
 }
 
-.contact-card h2 {
-  margin-bottom: 6px;
-  font-size: 22px;
-  line-height: 1.2;
+.contact-list-item::before {
+  content: "";
+  position: absolute;
+  top: 0.72em;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--accent-warm);
 }
 
-.contact-card p {
+.contact-list-item h3 {
+  margin: 0 0 5px;
+  font-family: var(--ui);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.contact-list-item p {
   margin: 0;
 }
 
@@ -1460,8 +1483,8 @@ h1,
 
 .order-steps {
   display: grid;
-  gap: 14px;
-  margin: 0 0 28px;
+  gap: 0;
+  margin: 0 0 26px;
   padding: 0;
   list-style: none;
   counter-reset: step;
@@ -1469,27 +1492,30 @@ h1,
 
 .order-steps li {
   position: relative;
-  padding: 22px 26px 22px 76px;
-  border: 1px solid var(--line);
-  background: rgba(255, 253, 248, 0.78);
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 14px 18px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--line-soft);
+  background: transparent;
   counter-increment: step;
 }
 
 .order-steps li::before {
   content: counter(step);
-  position: absolute;
-  left: 22px;
-  top: 22px;
+  position: static;
+  grid-row: 1 / span 2;
   display: inline-flex;
-  width: 38px;
-  height: 38px;
+  width: 34px;
+  height: 34px;
   align-items: center;
   justify-content: center;
   border-radius: 999px;
-  background: var(--ink);
-  color: var(--paper);
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
   font-family: var(--display);
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 600;
 }
 
@@ -1564,6 +1590,8 @@ h1,
 }
 
 .contact-list {
+  padding: 0;
+  list-style: none;
   max-width: 860px;
   margin-bottom: 30px;
 }
