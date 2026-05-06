@@ -1,5 +1,5 @@
 window.SITE_DATA = {
-  "generatedAt": "2026-05-05T13:06:45Z",
+  "generatedAt": "2026-05-05T06:31:26Z",
   "siteUrl": "https://takumumorita.com",
   "contactFormUrl": "https://docs.google.com/forms/d/e/1FAIpQLSch5jbzGyfmg3-7zW7FYQjsg6Pw0ogjhYIk1Lopdim21EviFA/viewform?usp=sharing",
   "categories": {

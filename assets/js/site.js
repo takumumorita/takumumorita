@@ -84,6 +84,37 @@
     return badges.join("");
   }
 
+  function availabilityBadges(work) {
+    const badges = [];
+    if (work.audio?.url) badges.push(statusBadge("Audio", "badge-audio"));
+    if (work.video?.url) badges.push(statusBadge("Video", "badge-video"));
+    if (work.score?.pages?.length) badges.push(statusBadge("Score", "badge-score"));
+    return badges.length ? badges.join("") : statusBadge(ui("資料準備中", "In preparation"), "badge-muted");
+  }
+
+  function plainText(value) {
+    return String(value || "")
+      .replace(/<br\s*\/?>/gi, " ")
+      .replace(/<[^>]*>/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  function excerpt(value, maxLength = 150) {
+    const text = plainText(value);
+    if (text.length <= maxLength) return text;
+    return `${text.slice(0, maxLength - 1).trim()}…`;
+  }
+
+  function workSummary(work, maxLength = 150) {
+    return excerpt(t(work.shortNote) || t(work.note), maxLength);
+  }
+
+  function absoluteImageUrl(work) {
+    if (!work.image?.src) return "";
+    return new URL(assetUrl(work.image.src), window.location.href).href;
+  }
+
   function workTone(work) {
     const source = work.slug || work.id || "";
     const sum = source.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0);
@@ -257,17 +288,15 @@
         root.dataset.rendered = "true";
         return;
       }
-      heroSlideshowState.shuffled = imageWorks
-        .map((work) => ({ work, rank: Math.random() }))
-        .sort((a, b) => a.rank - b.rank)
-        .map((item) => item.work)
-        .slice(0, Math.min(5, imageWorks.length));
-      const shuffled = heroSlideshowState.shuffled;
-      root.innerHTML = `<div class="hero-slideshow" data-hero-slideshow>
-        ${shuffled.map((work, index) => `<figure class="hero-slide${index === 0 ? " is-active" : ""}" data-protected-image>
-          <img src="${escapeHtml(assetUrl(work.image.src))}" alt="${escapeHtml(work.image.alt)}"${imageSizeAttrs(work.image)} loading="${index === 0 ? "eager" : "lazy"}" decoding="async" draggable="false">
-        </figure>`).join("")}
-        <div class="hero-slide-caption" data-hero-caption></div>
+      const preferred = ["hikari-to-kumo", "hoshi-ni-oyogu", "between-the-winds", "utopia", "parallax"];
+      const byId = new Map(imageWorks.map((work) => [work.id, work]));
+      const featured = preferred.map((id) => byId.get(id)).find(Boolean) || imageWorks[0];
+      heroSlideshowState.shuffled = [featured];
+      root.innerHTML = `<div class="hero-slideshow hero-atmosphere" data-hero-slideshow>
+        <figure class="hero-slide is-active" data-protected-image>
+          <img src="${escapeHtml(assetUrl(featured.image.src))}" alt="${escapeHtml(featured.image.alt)}"${imageSizeAttrs(featured.image)} loading="eager" decoding="async" draggable="false">
+        </figure>
+        <div class="hero-slide-caption" data-hero-caption aria-hidden="true"></div>
       </div>`;
       heroSlideshowState.slides = $$(".hero-slide", root);
       heroSlideshowState.current = 0;
@@ -275,21 +304,6 @@
         const preload = new Image();
         preload.src = img.currentSrc || img.src;
       });
-      if (heroSlideshowState.slides.length > 1) {
-        window.setInterval(() => {
-          const slides = heroSlideshowState.slides;
-          const prev = heroSlideshowState.current;
-          const next = (prev + 1) % slides.length;
-          const nextImage = $("img", slides[next]);
-          if (!nextImage || !nextImage.complete || nextImage.naturalWidth === 0) return;
-          slides[next].classList.add("is-active");
-          window.requestAnimationFrame(() => {
-            slides[prev].classList.remove("is-active");
-            heroSlideshowState.current = next;
-            updateHeroCaption();
-          });
-        }, 7000);
-      }
       root.dataset.rendered = "true";
     }
     updateHeroCaption();
@@ -472,20 +486,28 @@
     const selected = filtered.filter((work) => work.hasDetail && work.image?.src);
     const catalogue = filtered.filter((work) => !(work.hasDetail && work.image?.src));
     const selectedMarkup = selected.length
-      ? `<div class="works-card-grid">${selected.map((work) => `<article class="works-card" data-category="${escapeHtml(work.archiveCategory)}">
-          <a class="works-card-image" href="${escapeHtml(pageUrl(work.detailUrl))}" data-protected-image>
+      ? `<div class="works-card-grid works-readable-grid">${selected.map((work) => {
+        const title = escapeHtml(t(work.title));
+        const summary = workSummary(work, 128);
+        return `<article class="works-card works-readable-card" data-category="${escapeHtml(work.archiveCategory)}">
+          <a class="works-card-image works-readable-thumb" href="${escapeHtml(pageUrl(work.detailUrl))}" aria-label="${escapeHtml(`${title} ${ui("の詳細へ", "details")}`)}" data-protected-image>
             <img src="${escapeHtml(assetUrl(work.image.src))}" alt="${escapeHtml(work.image.alt)}"${imageSizeAttrs(work.image)} loading="lazy" decoding="async" draggable="false">
           </a>
           <div class="works-card-copy">
             <p class="work-category">${escapeHtml(categoryLabel(work))}</p>
-            <h3><a href="${escapeHtml(pageUrl(work.detailUrl))}">${escapeHtml(t(work.title))}</a><small>${escapeHtml(work.title.en)}</small></h3>
+            <h3><a href="${escapeHtml(pageUrl(work.detailUrl))}">${title}</a><small>${escapeHtml(work.title.en)}</small></h3>
+            <p class="works-card-instrumentation">${escapeHtml(t(work.instrumentation))}</p>
+            <div class="works-card-brief-meta">
+              <span>${escapeHtml(work.year)}</span>
+              <span>${escapeHtml(t(work.duration))}</span>
+            </div>
+            ${summary ? `<p class="works-card-summary">${escapeHtml(summary)}</p>` : ""}
             <dl class="works-card-meta">
-              <div><dt>${ui("編成", "Instrumentation")}</dt><dd>${escapeHtml(t(work.instrumentation))}</dd></div>
-              <div><dt>${ui("演奏時間", "Duration")}</dt><dd>${escapeHtml(t(work.duration))}</dd></div>
-              <div><dt>${ui("委嘱", "Commissioner")}</dt><dd>${escapeHtml(t(work.commissioner))}</dd></div>
+              <div><dt>${ui("音源 / 映像 / スコア", "Audio / Video / Score")}</dt><dd><span class="work-badges">${availabilityBadges(work)}</span></dd></div>
             </dl>
           </div>
-        </article>`).join("")}</div>`
+        </article>`;
+      }).join("")}</div>`
       : `<p class="empty-note">${ui("この編成の主な作品はまだ掲載していません。", "No selected works are currently listed for this category.")}</p>`;
     const catalogueMarkup = catalogue.length
       ? `<div class="works-catalogue-list">
@@ -538,12 +560,39 @@
     const award = t(work.award);
     const note = t(work.note) || t(work.shortNote);
     const scoreSection = scoreViewerMarkup(work);
+    const summary = workSummary(work, 170);
+    const visualUrl = absoluteImageUrl(work);
+    const visualStyle = visualUrl ? ` style="--detail-visual: url('${escapeHtml(visualUrl)}')"` : "";
+    const visualStudy = work.image?.src
+      ? `<aside class="detail-visual-gate"${visualStyle}>
+          <div>
+            <p class="kicker">Visual Study</p>
+            <h2>${ui("作品グラフィック", "Work Graphic")}</h2>
+            <p>${ui("作品イメージは必要なときだけ大きく確認できます。", "Open the visual study when you want to view the artwork in detail.")}</p>
+          </div>
+          <button class="button secondary visual-study-trigger" type="button" data-visual-open>${ui("グラフィックを見る", "View graphic")}</button>
+        </aside>
+        <div class="visual-study-modal" data-visual-modal hidden aria-hidden="true">
+          <button class="visual-study-backdrop" type="button" data-visual-close aria-label="${escapeHtml(ui("閉じる", "Close"))}"></button>
+          <div class="visual-study-dialog" role="dialog" aria-modal="true" aria-labelledby="visual-study-title">
+            <div class="visual-study-head">
+              <div>
+                <p class="kicker">Visual Study</p>
+                <h2 id="visual-study-title">${escapeHtml(t(work.title))}</h2>
+              </div>
+              <button class="score-action-button" type="button" data-visual-close>${ui("閉じる", "Close")}</button>
+            </div>
+            ${workImage(work, "visual-study-full", "eager")}
+          </div>
+        </div>`
+      : `<aside class="detail-visual-gate">${graphic(work)}</aside>`;
     root.innerHTML = `<p class="breadcrumb"><a href="${escapeHtml(pageUrl("works.html"))}">${ui("作品", "Works")}</a> / ${escapeHtml(t(work.title))}</p>
       <div class="detail-hero">
         <div>
           <p class="work-category">${escapeHtml(categoryLabel(work))}</p>
           <h1 class="detail-main-title">${escapeHtml(t(work.title))}</h1>
           <p class="detail-subtitle">${escapeHtml(work.title.en)}</p>
+          ${summary ? `<p class="detail-summary">${escapeHtml(summary)}</p>` : ""}
           <div class="work-badges detail-badges">${workBadges(work)}</div>
           <dl class="detail-meta">
             ${fact("編成", "Instrumentation", t(work.instrumentation))}
@@ -557,10 +606,12 @@
           </dl>
           <div class="detail-actions">
             <a class="button primary" href="#audio-video">${ui("試聴", "Listen")}</a>
+            ${work.score?.pages?.length ? `<a class="button secondary" href="#score-preview">${ui("スコアを見る", "View score")}</a>` : ""}
+            ${work.image?.src ? `<button class="button secondary" type="button" data-visual-open>${ui("グラフィックを見る", "View graphic")}</button>` : ""}
             <a class="button secondary" href="${CONTACT_FORM_URL}" target="_blank" rel="noopener noreferrer">${ui("この作品について問い合わせる", "Ask about this work")}</a>
           </div>
         </div>
-        ${workImage(work, "detail-image", "eager")}
+        ${visualStudy}
       </div>
 
       <section class="detail-section" id="audio-video">
@@ -568,12 +619,12 @@
         ${mediaEmbed(work)}
       </section>
 
-      ${scoreSection}
-
       <section class="detail-section" id="program-note">
         <h2>${ui("プログラムノート", "Program Note")}</h2>
         <div>${note || (state.lang === "ja" ? "プログラムノートは準備中です。" : "Program note is in preparation.")}</div>
       </section>
+
+      ${scoreSection}
 
       <section class="detail-section" id="performance-materials">
         <h2>${ui("演奏資料", "Performance Materials")}</h2>
@@ -587,6 +638,38 @@
         <a class="text-link" href="${escapeHtml(pageUrl("works.html"))}">${ui("作品一覧へ戻る", "Back to Works")}</a>
       </section>`;
     initScoreViewers(root);
+    initVisualStudyModal(root);
+  }
+
+  function initVisualStudyModal(root = document) {
+    const modal = $("[data-visual-modal]", root);
+    const openButtons = $$("[data-visual-open]", root);
+    if (!modal || !openButtons.length) return;
+    let lastFocus = null;
+
+    function close() {
+      modal.hidden = true;
+      modal.setAttribute("aria-hidden", "true");
+      body.classList.remove("visual-study-open");
+      document.removeEventListener("keydown", onKeydown);
+      lastFocus?.focus?.({ preventScroll: true });
+    }
+
+    function open() {
+      lastFocus = document.activeElement;
+      modal.hidden = false;
+      modal.setAttribute("aria-hidden", "false");
+      body.classList.add("visual-study-open");
+      document.addEventListener("keydown", onKeydown);
+      $("[data-visual-close]", modal)?.focus({ preventScroll: true });
+    }
+
+    function onKeydown(event) {
+      if (event.key === "Escape") close();
+    }
+
+    openButtons.forEach((button) => button.addEventListener("click", open));
+    $$("[data-visual-close]", modal).forEach((button) => button.addEventListener("click", close));
   }
 
   function initScoreViewers(root = document) {
