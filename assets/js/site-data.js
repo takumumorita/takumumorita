@@ -1,7 +1,21 @@
 window.SITE_DATA = {
-  "generatedAt": "2026-05-05T06:31:26Z",
+  "generatedAt": "2026-05-06T01:43:18Z",
   "siteUrl": "https://takumumorita.com",
   "contactFormUrl": "https://docs.google.com/forms/d/e/1FAIpQLSch5jbzGyfmg3-7zW7FYQjsg6Pw0ogjhYIk1Lopdim21EviFA/viewform?usp=sharing",
+  "siteText": {
+    "home_hero_lead": {
+      "ja": "演奏会、舞台、映像、物語のための音楽を制作。<br>時間、響き、構造への関心を軸に作品を展開しています。",
+      "en": "Music for concerts, stage, film, and narrative forms.<br>His work explores time, resonance, and structure."
+    },
+    "home_listen_lead": {
+      "ja": "編成や制作背景の異なる5作品を選びました。<br>コンサート音楽を中心に、電子音響、舞台・映像、物語との関わりを含む作品を掲載しています。",
+      "en": "Five works have been selected from different instrumentations and contexts.<br>The selection includes concert works, electronic sound, and works related to stage, film, or narrative forms."
+    },
+    "works_lead": {
+      "ja": "このページでは、主要作品を視覚的なイメージとともに初演日が新しい順に掲載しています。<br>その他の作品は、ページ下部に簡潔にまとめています。",
+      "en": "This page presents selected works with accompanying visual studies in reverse chronological order by premiere date.<br>Other works are summarized near the bottom of the page."
+    }
+  },
   "categories": {
     "all": {
       "en": "All",
