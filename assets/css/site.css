@@ -1710,6 +1710,10 @@ h1,
   max-width: 1080px;
 }
 
+.score-section.is-score-active {
+  z-index: 3000;
+}
+
 .detail-section h2 {
   margin-bottom: 18px;
 }
@@ -1749,6 +1753,10 @@ h1,
   font-family: var(--ui);
   font-size: 13px;
   font-weight: 700;
+}
+
+.score-exit-label {
+  display: none;
 }
 
 .score-close-button {
@@ -1878,42 +1886,72 @@ h1,
 
 body.score-fullscreen-open {
   overflow: hidden;
+  touch-action: none;
+}
+
+body.score-fullscreen-open .site-header {
+  opacity: 0;
+  pointer-events: none;
+}
+
+body.score-fullscreen-open .work-detail {
+  z-index: 1200;
 }
 
 .score-viewer.is-fullscreen {
   position: fixed;
   inset: 0;
-  z-index: 1000;
+  z-index: 3001;
   display: grid;
   grid-template-rows: auto minmax(0, 1fr) auto;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
   border: 0;
   background: var(--bg);
+  overscroll-behavior: contain;
 }
 
 .score-viewer.is-fullscreen .score-close-button {
   display: inline-flex;
 }
 
+.score-viewer.is-fullscreen .score-open-label {
+  display: none;
+}
+
+.score-viewer.is-fullscreen .score-exit-label {
+  display: inline;
+}
+
 .score-viewer.is-fullscreen .score-toolbar {
+  position: relative;
+  z-index: 4;
   background: rgba(247, 243, 233, 0.96);
 }
 
 .score-viewer.is-fullscreen .score-stage {
   min-height: 0;
+  overflow: hidden;
   padding: 24px 82px;
+  touch-action: pan-y;
 }
 
 .score-viewer.is-fullscreen .score-preview {
   max-width: calc(100vw - 180px);
   max-height: calc(100svh - 190px);
+  max-height: calc(100dvh - 190px);
 }
 
 .score-viewer.is-fullscreen .score-stage-image {
   max-width: calc(100vw - 180px);
   max-height: calc(100svh - 190px);
+  max-height: calc(100dvh - 190px);
 }
 
 .score-viewer.is-fullscreen .score-footer {
+  position: relative;
+  z-index: 4;
   background: rgba(247, 243, 233, 0.96);
 }
 
@@ -2260,18 +2298,23 @@ body.score-fullscreen-open {
   }
 
   .score-stage {
-    min-height: 420px;
-    padding: 18px 50px;
+    min-height: min(420px, 106vw);
+    padding: 16px 44px;
   }
 
   .score-stage-image {
-    max-height: 380px;
+    max-height: min(380px, 98vw);
   }
 
   .score-toolbar {
-    align-items: flex-start;
-    flex-direction: column;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 10px;
+  }
+
+  .score-toolbar-actions {
+    margin-left: auto;
   }
 
   .score-action-button,
@@ -2281,23 +2324,59 @@ body.score-fullscreen-open {
   }
 
   .score-footer {
-    align-items: flex-start;
-    flex-direction: column;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .score-viewer.is-fullscreen .score-toolbar {
+    align-items: center;
+    padding: calc(10px + env(safe-area-inset-top)) 12px 10px;
+  }
+
+  .score-viewer.is-fullscreen .score-toolbar-actions {
+    display: flex;
+    gap: 8px;
+  }
+
+  .score-viewer.is-fullscreen .score-action-button {
+    min-height: 42px;
+    padding: 7px 12px;
   }
 
   .score-viewer.is-fullscreen .score-stage {
-    padding: 14px 52px;
+    padding: 10px 48px;
   }
 
   .score-viewer.is-fullscreen .score-preview,
   .score-viewer.is-fullscreen .score-stage-image {
-    max-width: calc(100vw - 108px);
-    max-height: calc(100svh - 238px);
+    max-width: calc(100vw - 100px);
+    max-height: calc(100svh - 176px);
+    max-height: calc(100dvh - 176px);
+  }
+
+  .score-viewer.is-fullscreen .score-footer {
+    align-items: center;
+    flex-direction: row;
+    min-height: 88px;
+    padding: 8px 10px calc(8px + env(safe-area-inset-bottom));
   }
 
   .score-thumb {
     flex-basis: 64px;
     height: 82px;
+  }
+
+  .score-viewer.is-fullscreen .score-thumb {
+    flex-basis: 52px;
+    height: 68px;
+  }
+
+  .score-prev {
+    left: 8px;
+  }
+
+  .score-next {
+    right: 8px;
   }
 
   .catalogue-row {
@@ -2950,6 +3029,50 @@ body.score-fullscreen-open {
   .works-card-instrumentation,
   .works-readable-card .works-card-meta dd {
     font-size: 13px;
+  }
+
+  .score-toolbar {
+    padding: 10px 12px;
+  }
+
+  .score-toolbar-actions {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .score-action-button {
+    flex: 1 1 0;
+    padding: 7px 10px;
+    font-size: 12px;
+  }
+
+  .score-viewer.is-fullscreen .score-toolbar-actions {
+    width: auto;
+    margin-left: auto;
+  }
+
+  .score-viewer.is-fullscreen .score-action-button {
+    flex: 0 0 auto;
+  }
+
+  .score-viewer.is-fullscreen .score-stage {
+    padding: 8px 42px;
+  }
+
+  .score-viewer.is-fullscreen .score-preview,
+  .score-viewer.is-fullscreen .score-stage-image {
+    max-width: calc(100vw - 88px);
+    max-height: calc(100svh - 168px);
+    max-height: calc(100dvh - 168px);
+  }
+
+  .score-viewer.is-fullscreen .score-footer {
+    min-height: 78px;
+  }
+
+  .score-viewer.is-fullscreen .score-thumb {
+    flex-basis: 46px;
+    height: 60px;
   }
 }
 

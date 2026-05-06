@@ -1,5 +1,5 @@
 window.SITE_DATA = {
-  "generatedAt": "2026-05-06T01:43:18Z",
+  "generatedAt": "2026-05-06T03:34:25Z",
   "siteUrl": "https://takumumorita.com",
   "contactFormUrl": "https://docs.google.com/forms/d/e/1FAIpQLSch5jbzGyfmg3-7zW7FYQjsg6Pw0ogjhYIk1Lopdim21EviFA/viewform?usp=sharing",
   "siteText": {
@@ -47,6 +47,102 @@ window.SITE_DATA = {
     }
   },
   "works": [
+    {
+      "id": "kenchiku-seiza",
+      "slug": "architecture-and-constellations",
+      "hasDetail": true,
+      "detailUrl": "works/architecture-and-constellations.html",
+      "inList": true,
+      "inShop": false,
+      "rawCategory": "solo",
+      "archiveCategory": "chamber",
+      "archiveCategoryLabel": "Chamber / Ensemble",
+      "archiveCategoryName": {
+        "en": "Chamber / Ensemble",
+        "ja": "室内楽 / アンサンブル"
+      },
+      "selectedListening": false,
+      "selectedOrder": 999,
+      "selectedCategory": "Chamber / Ensemble",
+      "title": {
+        "en": "Architecture and Constellations",
+        "ja": "建築と星座"
+      },
+      "subtitle": {
+        "en": "",
+        "ja": ""
+      },
+      "instrumentation": {
+        "en": "Oboe, Viola, Piano",
+        "ja": "Oboe, Viola, Piano"
+      },
+      "duration": {
+        "en": "Approx. 15 min",
+        "ja": "約15分"
+      },
+      "commissioner": {
+        "en": "Shōta Takahashi, Ann Maeyama",
+        "ja": "高橋鐘汰・前山杏"
+      },
+      "premiere": {
+        "date": "2026/7/29 初演予定",
+        "ensemble": {
+          "en": "—",
+          "ja": "—"
+        },
+        "venue": {
+          "en": "—",
+          "ja": "—"
+        }
+      },
+      "award": {
+        "en": "",
+        "ja": ""
+      },
+      "year": "2025",
+      "listDate": "2026/7/29 初演予定",
+      "unpremiered": true,
+      "note": {
+        "en": "For me, architecture and constellations are contrasting presences: artificial and natural, structural and intuitive. In this work, I sought to create music in which these opposing elements coexist while resisting one another. The piece consists of twelve sections, in which images of Villa Savoye and constellations are connected sometimes abruptly, sometimes gradually.",
+        "ja": "建築と星座は、人工と自然、構造と直感といった点で対照的な存在である。<br>本作では、それらが反発しながらも共存する音楽を目指した。<br>作品は12の部分から成り、サヴォア邸と星座をめぐるイメージが、時に唐突に、時にゆるやかにつなぎ合わされていく。"
+      },
+      "shortNote": {
+        "en": "",
+        "ja": ""
+      },
+      "audio": {
+        "type": "none",
+        "url": "",
+        "embedUrl": ""
+      },
+      "video": {
+        "url": "",
+        "embedUrl": ""
+      },
+      "score": {
+        "slug": "",
+        "pages": [],
+        "alt": {
+          "en": "Score preview of Architecture and Constellations by Takumu Morita",
+          "ja": "森田拓夢《建築と星座》のスコア試し読み"
+        },
+        "priceScore": "",
+        "priceSet": "",
+        "checkboxValue": ""
+      },
+      "image": {
+        "src": "assets/images/Created_by_morita/original_before_resize/celestial_architecture_and_blueprint_harmony.png",
+        "alt": "Architecture and Constellations の作品イメージ",
+        "width": 1024,
+        "height": 1536
+      },
+      "sortKey": [
+        2026,
+        7,
+        29
+      ],
+      "ogImage": "assets/images/Created_by_morita/original_before_resize/celestial_architecture_and_blueprint_harmony.png"
+    },
     {
       "id": "parallax",
       "slug": "parallax",
@@ -104,7 +200,7 @@ window.SITE_DATA = {
       "unpremiered": false,
       "note": {
         "en": "Commissioned by the chamber trio \"Toshi-no-Owari-ni Sanjuso\" (Clarinet, Violoncello, Piano). The title \"Parallax\" refers to the apparent shift of an object's position when viewed from different vantage points — a single motif observed from many angles. The commissioner asked for a piece related to Beethoven's Trio in E♭ Op.38; the central motif borrows the opening three notes (B♭–A–B♭) of its first movement's first theme. Five fragments derived from this single motif unfold in sequence, the same color-field shifting in texture and temperature.",
-        "ja": "クラリネット・チェロ・ピアノの三重奏団「年の終わりに三重奏」からの依頼により作曲。タイトル「Parallax（視差）」は、観測者の位置の違いによって物体の見かけ上の位置が変化する現象を指す言葉。一つのモチーフを様々な角度から眺め、その違いを楽しむことを念頭に作曲した。「ベートーヴェン《三重奏曲 変ホ長調 Op.38》にちなんだ曲を」という委嘱者の希望から、そのモチーフは同曲第一楽章・第一主題冒頭3音（B♭→A→B♭）を拝借している。一つのモチーフから導かれた5つの音楽断片が順に演奏・展開される。同じ色彩感の中で、質感や温度が次々と切り替わっていく様を楽しんでいただきたい。"
+        "ja": "クラリネット・チェロ・ピアノの三重奏団「年の終わりに三重奏」からの依頼により作曲。<br>タイトル「Parallax（視差）」は、観測者の位置の違いによって物体の見かけ上の位置が変化する現象を指す言葉。<br>一つのモチーフを様々な角度から眺め、その違いを楽しむことを念頭に作曲した。<br><br>「ベートーヴェン《三重奏曲 変ホ長調 Op.38》にちなんだ曲を」という委嘱者の希望から、そのモチーフは同曲第一楽章・第一主題冒頭3音（B♭→A→B♭）を拝借している。<br>一つのモチーフから導かれた5つの音楽断片が順に演奏・展開される。<br>同じ色彩感の中で、質感や温度が次々と切り替わっていく様を楽しんでいただきたい。"
       },
       "shortNote": {
         "en": "",
@@ -138,7 +234,7 @@ window.SITE_DATA = {
       },
       "image": {
         "src": "assets/images/Created_by_morita/original_before_resize/abstract_architectural_blueprint_in_soft_hues.png",
-        "alt": "Parallax の抽象グラフィック",
+        "alt": "Parallax の作品イメージ",
         "width": 1122,
         "height": 1402
       },
@@ -206,7 +302,7 @@ window.SITE_DATA = {
       "unpremiered": false,
       "note": {
         "en": "Commissioned by the Tsuruoka-Higashi High School Wind Ensemble. The title refers not to metaphor but to actual sunlight and clouds drifting in the sky. Four materials introduced at the outset — heterophony, trills, pulses, and chorale — generate music that shifts continuously like clouds.",
-        "ja": "鶴岡東高等学校吹奏楽部からの作曲依頼により作曲。タイトルはメタファーではなく現実世界の太陽の光と空に浮かぶ雲を指している。第一部で提示される四つの素材（ヘテロフォニー・トリル・パルス・コラール）から、変化し続ける雲のように音楽が展開していく。"
+        "ja": "鶴岡東高等学校吹奏楽部からの作曲依頼により作曲。<br>タイトルはメタファーではなく現実世界の太陽の光と空に浮かぶ雲を指している。<br>第一部で提示される四つの素材（ヘテロフォニー・トリル・パルス・コラール）から、変化し続ける雲のように音楽が展開していく。"
       },
       "shortNote": {
         "en": "A wind ensemble work shaped by the shifting states of light and clouds.",
@@ -246,7 +342,7 @@ window.SITE_DATA = {
       },
       "image": {
         "src": "assets/images/Created_by_morita/original_before_resize/ethereal_geometry_in_floating_clouds.png",
-        "alt": "光と雲で / With Light and Clouds の抽象グラフィック",
+        "alt": "光と雲で / With Light and Clouds の作品イメージ",
         "width": 1122,
         "height": 1402
       },
@@ -314,7 +410,7 @@ window.SITE_DATA = {
       "unpremiered": false,
       "note": {
         "en": "Commissioned by saxophonist Sōta Kawaguchi. Inspired by his master-disciple relationship with co-premiere artist Kazuyuki Hayashida the work pictures two fish swimming through a dark sea toward the stars.",
-        "ja": "サクソフォン奏者・川口蒼太からの作曲依頼により作曲。初演者である川口さんと林田和之さんの師弟関係から着想を得て、夜の暗い海を泳ぐ二匹の魚が星を目指して泳ぎ続けるイメージをそのまま音楽にした。"
+        "ja": "サクソフォン奏者・川口蒼太からの作曲依頼により作曲。<br>初演者である川口さんと林田和之さんの師弟関係から着想を得て、夜の暗い海を泳ぐ二匹の魚が星を目指して泳ぎ続けるイメージをそのまま音楽にした。"
       },
       "shortNote": {
         "en": "",
@@ -355,7 +451,7 @@ window.SITE_DATA = {
       },
       "image": {
         "src": "assets/images/Created_by_morita/original_before_resize/futuristic_celestial_diagram_in_gold_and_blue.png",
-        "alt": "星におよぐ の抽象グラフィック",
+        "alt": "星におよぐ の作品イメージ",
         "width": 1024,
         "height": 1536
       },
@@ -423,7 +519,7 @@ window.SITE_DATA = {
       "unpremiered": false,
       "note": {
         "en": "Commissioned by flutist Kunihiro Kamata. Inspired by the word wind — recurring in conversations with him — and all the impressions that word carried for the composer.",
-        "ja": "フルート奏者の鎌田邦裕からの作曲依頼により作曲。鎌田さんとの会話に何度も登場した言葉「風」から着想を得て、気まぐれさやスピード感、過ぎ去った後の感触など、整理されていない自然の「風」が生命を帯びる過程と、その逆の過程の行き来をもって、掴み所がないが風のような疾走感を持つ音楽を試みた。"
+        "ja": "フルート奏者の鎌田邦裕からの作曲依頼により作曲。<br>鎌田さんとの会話に何度も登場した言葉「風」から着想を得て、気まぐれさやスピード感、過ぎ去った後の感触など、整理されていない自然の「風」が生命を帯びる過程と、その逆の過程の行き来をもって、掴み所がないが風のような疾走感を持つ音楽を試みた。"
       },
       "shortNote": {
         "en": "",
@@ -464,7 +560,7 @@ window.SITE_DATA = {
       },
       "image": {
         "src": "assets/images/Created_by_morita/original_before_resize/ethereal_flow_of_soft_ribbons.png",
-        "alt": "Between the Winds の抽象グラフィック",
+        "alt": "Between the Winds の作品イメージ",
         "width": 1024,
         "height": 1536
       },
@@ -532,7 +628,7 @@ window.SITE_DATA = {
       "unpremiered": false,
       "note": {
         "en": "Commissioned by EBE Ensemble. The title Kasasane draws from the layering technique kasane — the color combinations of the twelve-layered jūnihitoe robes worn by Japanese nobility.",
-        "ja": "EBE Ensembleからの依頼により作曲。タイトル「かささね」は、日本の貴族の伝統的衣装「十二単」の色の組み合わせ技法「かさね」に由来する。"
+        "ja": "EBE Ensembleからの依頼により作曲。<br>タイトル「かささね」は、日本の貴族の伝統的衣装「十二単」の色の組み合わせ技法「かさね」に由来する。"
       },
       "shortNote": {
         "en": "",
@@ -569,7 +665,7 @@ window.SITE_DATA = {
       },
       "image": {
         "src": "assets/images/Created_by_morita/original_before_resize/elegant_abstract_cathedral_of_layered_geometry.png",
-        "alt": "Kasasane の抽象グラフィック",
+        "alt": "Kasasane の作品イメージ",
         "width": 1122,
         "height": 1402
       },
@@ -671,7 +767,7 @@ window.SITE_DATA = {
       },
       "image": {
         "src": "assets/images/Created_by_morita/original_before_resize/futuristic_explosion_of_fragmented_geometry.png",
-        "alt": "Zapping Shower の抽象グラフィック",
+        "alt": "Zapping Shower の作品イメージ",
         "width": 1122,
         "height": 1402
       },
@@ -739,7 +835,7 @@ window.SITE_DATA = {
       "unpremiered": false,
       "note": {
         "en": "Inspired by film editing — Cutting. Three musical characters named River Digital and Gesture/Pause are processed and edited like cinematic cuts.",
-        "ja": "映像の編集（Cutting）から着想を得た作品。性格の異なる三つの音楽——「川」「デジタル」「身振り／間」——が、まるで映画のカットのように加工・編集されていく過程を聴かせる。"
+        "ja": "映像の編集（Cutting）から着想を得た作品。<br>性格の異なる三つの音楽——「川」「デジタル」「身振り／間」——が、まるで映画のカットのように加工・編集されていく過程を聴かせる。"
       },
       "shortNote": {
         "en": "A chamber ensemble work that connects film editing with musical processing.",
@@ -778,7 +874,7 @@ window.SITE_DATA = {
       },
       "image": {
         "src": "assets/images/Created_by_morita/original_before_resize/explosive_geometric_abstraction_with_metallic_acce.png",
-        "alt": "Cutting の抽象グラフィック",
+        "alt": "Cutting の作品イメージ",
         "width": 1024,
         "height": 1536
       },
@@ -846,7 +942,7 @@ window.SITE_DATA = {
       "unpremiered": false,
       "note": {
         "en": "A work observing the freewheeling behaviour distinct to children — their bursts of curiosity, intense focus, and sudden drowsiness. Imitation (manekko) and fantasy intertwine as the children's vivid will is unfolded — viewed from outside while playing along with them.",
-        "ja": "子供特有の好奇心や集中力、そして急な眠気といった奔放な振る舞いに着目。模倣（まねっこ）や空想が入り混じる子供たちの生き生きとした意志を、外から眺め、共に遊ぶように展開する。"
+        "ja": "子供特有の好奇心や集中力、そして急な眠気といった奔放な振る舞いに着目。<br>模倣（まねっこ）や空想が入り混じる子供たちの生き生きとした意志を、外から眺め、共に遊ぶように展開する。"
       },
       "shortNote": {
         "en": "An orchestral work on imitation and repetition. 2nd Prize, 91st Music Competition of Japan.",
@@ -855,7 +951,7 @@ window.SITE_DATA = {
       "audio": {
         "type": "soundcloud",
         "url": "https://soundcloud.com/ao81ctjk62b8/for-orchestra-2022",
-        "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fao81ctjk62b8%2Ffor-orchestra-2022&color=%232b574f&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false"
+        "embedUrl": "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/ao81ctjk62b8/for-orchestra-2022&color=%232b574f&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false"
       },
       "video": {
         "url": "",
@@ -887,7 +983,7 @@ window.SITE_DATA = {
       },
       "image": {
         "src": "assets/images/Created_by_morita/original_before_resize/symmetrical_geometry_and_cosmic_patterns.png",
-        "alt": "まねっこごっこ / Manekko Gokko の抽象グラフィック",
+        "alt": "まねっこごっこ / Manekko Gokko の作品イメージ",
         "width": 1122,
         "height": 1402
       },
@@ -983,7 +1079,7 @@ window.SITE_DATA = {
       },
       "image": {
         "src": "",
-        "alt": "A Child's Garden の抽象グラフィック",
+        "alt": "A Child's Garden の作品イメージ",
         "width": null,
         "height": null
       },
@@ -1079,7 +1175,7 @@ window.SITE_DATA = {
       },
       "image": {
         "src": "",
-        "alt": "ABSTRACTION の抽象グラフィック",
+        "alt": "ABSTRACTION の作品イメージ",
         "width": null,
         "height": null
       },
@@ -1147,7 +1243,7 @@ window.SITE_DATA = {
       "unpremiered": false,
       "note": {
         "en": "A work pursuing \"simple, beautiful music\" worth sharing in difficult times. Built around the stable resonance of perfect fifths, it explores the ideal — and the fragility of that ideal — that the subtitle \"Utopia\" suggests, unfolding with the colour and motion unique to the saxophone quartet.",
-        "ja": "困難な時代にこそ共有したい『シンプルで美しい音楽』を追求した作品。副題の『Utopia』が示す理想とその儚さをテーマに、完全五度の安定した響きを基調として、サクソフォン四重奏ならではの色彩感と運動性で天真爛漫に展開する。"
+        "ja": "困難な時代にこそ共有したい『シンプルで美しい音楽』を追求した作品。<br>副題の『Utopia』が示す理想とその儚さをテーマに、完全五度の安定した響きを基調として、サクソフォン四重奏ならではの色彩感と運動性で天真爛漫に展開する。"
       },
       "shortNote": {
         "en": "",
@@ -1185,7 +1281,7 @@ window.SITE_DATA = {
       },
       "image": {
         "src": "assets/images/Created_by_morita/original_before_resize/Utopia_Graphic.png",
-        "alt": "サクソフォン四重奏曲第一番 Utopia の抽象グラフィック",
+        "alt": "サクソフォン四重奏曲第一番 Utopia の作品イメージ",
         "width": 1122,
         "height": 1402
       },
@@ -1253,7 +1349,7 @@ window.SITE_DATA = {
       "unpremiered": false,
       "note": {
         "en": "A musical work with orchestra accompaniment and flute/piano accompaniment versions. The listed video introduces the work in performance.",
-        "ja": "オーケストラ伴奏版とフルート・ピアノ伴奏版の二つの形態があるミュージカル作品。掲載映像では作品の一部を確認できます。"
+        "ja": "オーケストラ伴奏版とフルート・ピアノ伴奏版の二つの形態があるミュージカル作品。<br>掲載映像では作品の一部を確認できます。"
       },
       "shortNote": {
         "en": "A musical work with orchestra and flute/piano accompaniment versions.",
@@ -1281,7 +1377,7 @@ window.SITE_DATA = {
       },
       "image": {
         "src": "assets/images/Created_by_morita/original_before_resize/Suisho-no-kuni-ni-owakarewo.png",
-        "alt": "水晶の国にお別れを / Farewell to the Crystal Kingdom の抽象グラフィック",
+        "alt": "水晶の国にお別れを / Farewell to the Crystal Kingdom の作品イメージ",
         "width": 1086,
         "height": 1448
       },
@@ -1377,7 +1473,7 @@ window.SITE_DATA = {
       },
       "image": {
         "src": "",
-        "alt": "水晶の国にお別れを（フルート・ピアノ伴奏版） / Musical (Flute & Piano accompaniment ver.) の抽象グラフィック",
+        "alt": "水晶の国にお別れを（フルート・ピアノ伴奏版） / Musical (Flute & Piano accompaniment ver.) の作品イメージ",
         "width": null,
         "height": null
       },
@@ -1445,7 +1541,7 @@ window.SITE_DATA = {
       "unpremiered": false,
       "note": {
         "en": "The second piece in the \"Defocusing\" series, where blurring the contours of things gives rise to a poetic space. Drawing on the imagery of falling and old film footage, the work gradually unwinds the relationship between sight and sound. Through this experimental approach, it pursues the play of a stage-screen boundary that wavers, and the romantic resonances that arise within.",
-        "ja": "物事を曖昧にすることで詩的な空間を生む『Defocusing』シリーズの第2作目。落下現象や古い映画の映像を素材に、視覚と聴覚の関係を次第に解きほぐしていく構成を試みている。実験的なアプローチを通じ、舞台とスクリーンの境界が揺らぐ面白さや、その中に立ち現れるロマンティックな響きを追求した作品。"
+        "ja": "物事を曖昧にすることで詩的な空間を生む『Defocusing』シリーズの第2作目。<br>落下現象や古い映画の映像を素材に、視覚と聴覚の関係を次第に解きほぐしていく構成を試みている。<br>実験的なアプローチを通じ、舞台とスクリーンの境界が揺らぐ面白さや、その中に立ち現れるロマンティックな響きを追求した作品。"
       },
       "shortNote": {
         "en": "A stage-screen work examining the relationship between image and chamber sound.",
@@ -1486,7 +1582,7 @@ window.SITE_DATA = {
       },
       "image": {
         "src": "assets/images/Created_by_morita/original_before_resize/ethereal_descent_of_fragmented_structures.png",
-        "alt": "Defocusing II — with Falling — の抽象グラフィック",
+        "alt": "Defocusing II — with Falling — の作品イメージ",
         "width": 1122,
         "height": 1402
       },
@@ -1554,7 +1650,7 @@ window.SITE_DATA = {
       "unpremiered": false,
       "note": {
         "en": "Inspired by Baudelaire's poem \"Correspondances,\" this work pursues the relationship between the meaning and the sound of the words. Cast in three sections: a traditional song-style first part; variations on the phonetics of the poem in the second; a return to meaning through Japanese recitation in the third. A synaesthetic approach proposing a loose relationship between language and music.",
-        "ja": "ボードレールの詩『万物照応』に着想を得て、詩の『意味』と『発音』の関係性を追求した作品。伝統的な歌曲スタイルの第1部、詩の『音』そのものに変奏を試みる第2部、そして日本語朗読により『意味』へと回帰する第3部で構成。共感覚的なアプローチを通じ、言葉と音楽の間に生まれる緩やかな関係性を提示。"
+        "ja": "ボードレールの詩『万物照応』に着想を得て、詩の『意味』と『発音』の関係性を追求した作品。<br>伝統的な歌曲スタイルの第1部、詩の『音』そのものに変奏を試みる第2部、そして日本語朗読により『意味』へと回帰する第3部で構成。<br>共感覚的なアプローチを通じ、言葉と音楽の間に生まれる緩やかな関係性を提示。"
       },
       "shortNote": {
         "en": "",
@@ -1592,7 +1688,7 @@ window.SITE_DATA = {
       },
       "image": {
         "src": "assets/images/Created_by_morita/original_before_resize/Correspondances_Graphic.png",
-        "alt": "Correspondances の抽象グラフィック",
+        "alt": "Correspondances の作品イメージ",
         "width": 1122,
         "height": 1402
       },
@@ -1688,7 +1784,7 @@ window.SITE_DATA = {
       },
       "image": {
         "src": "",
-        "alt": "回って、回って、回って... / Tuba, Live Electronics の抽象グラフィック",
+        "alt": "回って、回って、回って... / Tuba, Live Electronics の作品イメージ",
         "width": null,
         "height": null
       },
@@ -1784,7 +1880,7 @@ window.SITE_DATA = {
       },
       "image": {
         "src": "",
-        "alt": "Defocusing in D の抽象グラフィック",
+        "alt": "Defocusing in D の作品イメージ",
         "width": null,
         "height": null
       },
@@ -1880,7 +1976,7 @@ window.SITE_DATA = {
       },
       "image": {
         "src": "",
-        "alt": "水晶の国にお別れを（オーケストラ伴奏版） / Musical (Orchestra accompaniment ver.) の抽象グラフィック",
+        "alt": "水晶の国にお別れを（オーケストラ伴奏版） / Musical (Orchestra accompaniment ver.) の作品イメージ",
         "width": null,
         "height": null
       },
@@ -1976,7 +2072,7 @@ window.SITE_DATA = {
       },
       "image": {
         "src": "",
-        "alt": "Trip-Slipping の抽象グラフィック",
+        "alt": "Trip-Slipping の作品イメージ",
         "width": null,
         "height": null
       },
@@ -1986,102 +2082,6 @@ window.SITE_DATA = {
         1
       ],
       "ogImage": "assets/images/og/trip-slipping.svg"
-    },
-    {
-      "id": "kenchiku-seiza",
-      "slug": "architecture-and-constellations",
-      "hasDetail": true,
-      "detailUrl": "works/architecture-and-constellations.html",
-      "inList": true,
-      "inShop": false,
-      "rawCategory": "solo",
-      "archiveCategory": "chamber",
-      "archiveCategoryLabel": "Chamber / Ensemble",
-      "archiveCategoryName": {
-        "en": "Chamber / Ensemble",
-        "ja": "室内楽 / アンサンブル"
-      },
-      "selectedListening": false,
-      "selectedOrder": 999,
-      "selectedCategory": "Chamber / Ensemble",
-      "title": {
-        "en": "Architecture and Constellations",
-        "ja": "建築と星座"
-      },
-      "subtitle": {
-        "en": "",
-        "ja": ""
-      },
-      "instrumentation": {
-        "en": "Oboe, Viola, Piano",
-        "ja": "Oboe, Viola, Piano"
-      },
-      "duration": {
-        "en": "Approx. 15 min",
-        "ja": "約15分"
-      },
-      "commissioner": {
-        "en": "—",
-        "ja": "—"
-      },
-      "premiere": {
-        "date": "—",
-        "ensemble": {
-          "en": "—",
-          "ja": "—"
-        },
-        "venue": {
-          "en": "—",
-          "ja": "—"
-        }
-      },
-      "award": {
-        "en": "",
-        "ja": ""
-      },
-      "year": "—",
-      "listDate": "—",
-      "unpremiered": true,
-      "note": {
-        "en": "",
-        "ja": ""
-      },
-      "shortNote": {
-        "en": "",
-        "ja": ""
-      },
-      "audio": {
-        "type": "none",
-        "url": "",
-        "embedUrl": ""
-      },
-      "video": {
-        "url": "",
-        "embedUrl": ""
-      },
-      "score": {
-        "slug": "",
-        "pages": [],
-        "alt": {
-          "en": "Score preview of Architecture and Constellations by Takumu Morita",
-          "ja": "森田拓夢《建築と星座》のスコア試し読み"
-        },
-        "priceScore": "",
-        "priceSet": "",
-        "checkboxValue": ""
-      },
-      "image": {
-        "src": "assets/images/Created_by_morita/original_before_resize/celestial_architecture_and_blueprint_harmony.png",
-        "alt": "Architecture and Constellations の抽象グラフィック",
-        "width": 1024,
-        "height": 1536
-      },
-      "sortKey": [
-        0,
-        0,
-        0
-      ],
-      "ogImage": "assets/images/Created_by_morita/original_before_resize/celestial_architecture_and_blueprint_harmony.png"
     },
     {
       "id": "finished-knowing",
@@ -2121,7 +2121,7 @@ window.SITE_DATA = {
         "ja": "—"
       },
       "premiere": {
-        "date": "—",
+        "date": "未初演",
         "ensemble": {
           "en": "—",
           "ja": "—"
@@ -2136,7 +2136,7 @@ window.SITE_DATA = {
         "ja": ""
       },
       "year": "—",
-      "listDate": "—",
+      "listDate": "未初演",
       "unpremiered": true,
       "note": {
         "en": "",
@@ -2168,7 +2168,7 @@ window.SITE_DATA = {
       },
       "image": {
         "src": "",
-        "alt": "And finished knowing — then — の抽象グラフィック",
+        "alt": "And finished knowing — then — の作品イメージ",
         "width": null,
         "height": null
       },
@@ -2217,7 +2217,7 @@ window.SITE_DATA = {
         "ja": "—"
       },
       "premiere": {
-        "date": "—",
+        "date": "未初演",
         "ensemble": {
           "en": "—",
           "ja": "—"
@@ -2232,7 +2232,7 @@ window.SITE_DATA = {
         "ja": ""
       },
       "year": "—",
-      "listDate": "—",
+      "listDate": "未初演",
       "unpremiered": true,
       "note": {
         "en": "",
@@ -2264,7 +2264,7 @@ window.SITE_DATA = {
       },
       "image": {
         "src": "",
-        "alt": "環 ─《創生》のテクストに基づいて─ / 環 ─ Based on the text ”創生” ─ の抽象グラフィック",
+        "alt": "環 ─《創生》のテクストに基づいて─ / 環 ─ Based on the text ”創生” ─ の作品イメージ",
         "width": null,
         "height": null
       },
@@ -2277,6 +2277,24 @@ window.SITE_DATA = {
     }
   ],
   "news": [
+    {
+      "date": "2026.7.29",
+      "tag": "upcoming",
+      "badge": {
+        "ja": "今後の予定",
+        "en": "Upcoming"
+      },
+      "title": {
+        "en": "Premiere of Architecture and Constellations Announced",
+        "ja": "《建築と星座》初演決定"
+      },
+      "body": {
+        "en": "My new work Architecture and Constellations for oboe, viola, and piano will receive its world premiere at the following concert.<br><br>Architecture and Constellations<br>An Evening of Oboe, Viola, and Piano with Trio Astrale<br><br>Date & Time<br>Wednesday, July 29, 2026<br>Concert begins at 7:00 p.m.<br>Doors open at 6:30 p.m.<br>Aoyama Music Memorial Hall, Barocksaal<br><br>Admission<br>General: ¥3,000<br>Students: ¥2,000<br><br>Performers<br>Manami Fujimoto, oboe<br>Ann Maeyama, viola<br>Hitomi Kutsunai, piano<br><br>Program<br>Takumu Morita: Architecture and Constellations(Commissioned work / World premiere)<br>W. A. Mozart: Trio “Kegelstatt,” K. 498<br>Robert Kahn: Serenade in F minor, Op. 73<br>Robert Schumann: Märchenerzählungen, Op. 132<br>Charles Martin Loeffler: Two Rhapsodies<br><br>Reservations<br>Please contact me directly at takumumusic@gmail.com.",
+        "ja": "オーボエ、ヴィオラ、ピアノのための拙作《建築と星座》が下記の演奏会で初演予定です。<br><br>◯建築と星座<br>〜トリオ・アストラーレによる<br>オーボエ、ヴィオラ、ピアノの夕べ〜<br><br>◯日時<br>2026年7月29日(水)<br>開演19:00（開場18:30）<br>@青山音楽記念館　バロックザール<br><br>◯入場料<br>一般3,000円、学生2,000円<br><br>◯出演者<br>藤本茉奈美（オーボエ）<br>前山杏（ヴィオラ）<br>久津内瞳（ピアノ）<br><br>◯曲目<br>・森田拓夢 : 建築と星座（委嘱新作・世界初演）<br>・W.A. モーツァルト : 三重奏曲「ケーゲルシュタット」K.498<br>・R.カーン : セレナーデ へ短鯛Op.73<br>・R.シューマン : おとぎ話 Op.132<br>・C.M. レフラー : 2つの狂詩曲<br><br>◯お申し込み<br>takumumusic@gmail.com宛にご連絡ください。"
+      },
+      "linkUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdE33Pc2BfxVzPHbEonI9eh4vfAQUHxwe9BzPPmXmJD9T8iEQ/viewform?usp=header",
+      "external": true
+    },
     {
       "date": "2027.3.20–22",
       "tag": "upcoming",
@@ -2321,8 +2339,8 @@ window.SITE_DATA = {
         "en": "Premiere"
       },
       "title": {
-        "en": "Parallax — World Premiere",
-        "ja": "《Parallax》世界初演"
+        "en": "Parallax — Premiere in Kobe",
+        "ja": "《Parallax》神戸にて初演"
       },
       "body": {
         "en": "<em>Parallax</em> for Clarinet, Violoncello, Piano premiered in Kobe by Kei Shimomura (Cl), Mutsuhiro Yamauchi (Vc), and Hiroshi Mihara (Pf).",
@@ -2358,7 +2376,7 @@ window.SITE_DATA = {
       },
       "title": {
         "en": "Hikari to Kumo de — Premiere",
-        "ja": "《光と雲で》 鶴岡東高等学校吹奏楽部により初演"
+        "ja": "《光と雲で》 山形にて初演"
       },
       "body": {
         "en": "<em>Hikari to Kumo de</em> for Wind Ensemble premiered in Yamagata by the Tsuruoka-Higashi High School Wind Ensemble.",

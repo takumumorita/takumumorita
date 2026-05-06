@@ -137,7 +137,7 @@
       return `<figure class="work-image-frame ${className} work-image-fallback">${graphic(work)}</figure>`;
     }
     return `<figure class="work-image-frame ${className}" data-protected-image>
-      <img class="work-image" src="${escapeHtml(assetUrl(image.src))}" alt="${escapeHtml(image.alt || `${t(work.title)} の抽象グラフィック`)}"${imageSizeAttrs(image)} loading="${loading}" decoding="async" draggable="false">
+      <img class="work-image" src="${escapeHtml(assetUrl(image.src))}" alt="${escapeHtml(image.alt || `${t(work.title)} の作品イメージ`)}"${imageSizeAttrs(image)} loading="${loading}" decoding="async" draggable="false">
     </figure>`;
   }
 
@@ -174,10 +174,13 @@
         <h2>${ui("スコア試し読み", "Score Preview")}</h2>
         <div class="score-viewer" data-score-viewer data-score-protected tabindex="0" aria-label="${escapeHtml(ui("スコア試し読みビューア", "Score preview viewer"))}">
           <div class="score-toolbar">
-            <p class="score-count"><span data-score-current>1</span> / ${pages.length}</p>
+            <p class="score-count" aria-live="polite"><span data-score-current>1</span> / ${pages.length}</p>
             <div class="score-toolbar-actions">
-              <button class="score-action-button" type="button" data-score-fullscreen aria-expanded="false">${ui("全画面", "Fullscreen")}</button>
-              <button class="score-action-button score-close-button" type="button" data-score-close>${ui("閉じる", "Close")}</button>
+              <button class="score-action-button score-expand-button" type="button" data-score-fullscreen aria-expanded="false" aria-label="${escapeHtml(ui("スコアを大きく表示", "Open enlarged score view"))}">
+                <span class="score-open-label">${ui("大きく表示", "Enlarge")}</span>
+                <span class="score-exit-label">${ui("元に戻す", "Exit")}</span>
+              </button>
+              <button class="score-action-button score-close-button" type="button" data-score-close aria-label="${escapeHtml(ui("拡大表示を閉じる", "Close enlarged score view"))}">${ui("閉じる", "Close")}</button>
             </div>
           </div>
           <div class="score-stage">
@@ -688,9 +691,11 @@
       const stage = $(".score-stage", viewer);
       const fullscreenButton = $("[data-score-fullscreen]", viewer);
       const closeButton = $("[data-score-close]", viewer);
+      const scoreSection = viewer.closest(".score-section");
       if (!main || !thumbs.length) return;
       let index = 0;
       let touchStartX = null;
+      let scrollYBeforeFullscreen = 0;
 
       function show(nextIndex) {
         index = (nextIndex + thumbs.length) % thumbs.length;
@@ -704,22 +709,27 @@
       }
 
       function setFullscreen(open) {
+        const isOpen = viewer.classList.contains("is-fullscreen");
+        if (open === isOpen) return;
+        if (open) scrollYBeforeFullscreen = window.scrollY || window.pageYOffset || 0;
         viewer.classList.toggle("is-fullscreen", open);
+        scoreSection?.classList.toggle("is-score-active", open);
         body.classList.toggle("score-fullscreen-open", open);
         fullscreenButton?.setAttribute("aria-expanded", String(open));
+        fullscreenButton?.setAttribute("aria-label", open
+          ? ui("通常表示に戻す", "Return to normal score view")
+          : ui("スコアを大きく表示", "Open enlarged score view"));
         if (open) {
-          viewer.focus({ preventScroll: true });
-          if (viewer.requestFullscreen && document.fullscreenElement !== viewer) {
-            viewer.requestFullscreen().catch(() => {});
-          }
-        } else if (document.fullscreenElement === viewer && document.exitFullscreen) {
-          document.exitFullscreen().catch(() => {});
+          closeButton?.focus({ preventScroll: true });
+        } else {
+          fullscreenButton?.focus({ preventScroll: true });
+          window.requestAnimationFrame(() => window.scrollTo(0, scrollYBeforeFullscreen));
         }
       }
 
       $("[data-score-prev]", viewer)?.addEventListener("click", () => show(index - 1));
       $("[data-score-next]", viewer)?.addEventListener("click", () => show(index + 1));
-      fullscreenButton?.addEventListener("click", () => setFullscreen(true));
+      fullscreenButton?.addEventListener("click", () => setFullscreen(!viewer.classList.contains("is-fullscreen")));
       closeButton?.addEventListener("click", () => setFullscreen(false));
       thumbs.forEach((thumb) => {
         thumb.addEventListener("click", () => show(Number(thumb.dataset.scoreThumb || 0)));
@@ -743,9 +753,7 @@
       });
       document.addEventListener("fullscreenchange", () => {
         if (!document.fullscreenElement && viewer.classList.contains("is-fullscreen")) {
-          viewer.classList.remove("is-fullscreen");
-          body.classList.remove("score-fullscreen-open");
-          fullscreenButton?.setAttribute("aria-expanded", "false");
+          setFullscreen(false);
         }
       });
       show(0);
